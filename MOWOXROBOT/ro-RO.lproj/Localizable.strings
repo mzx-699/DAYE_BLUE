@@ -5,6 +5,7 @@
   Created by 杭州轨物科技有限公司 on 2018/1/31.
   Copyright © 2018年 yusz. All rights reserved.
 */
+"Wireless update via APP, can take up to 2-3 attempts, depending on the type of Bluetooth version the device used uses." = "Actualizarea fără fir prin APP poate dura până la 2-3 încercări, în funcție de tipul de versiune Bluetooth pe care o folosește dispozitivul utilizat.";
 "confail" = "Conectare eșuată";
 "consucc" = "Conectare cu succes";
 "disconnect" = "deconectați";

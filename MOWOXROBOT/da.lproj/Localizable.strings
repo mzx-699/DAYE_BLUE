@@ -5,6 +5,7 @@
   Created by 杭州轨物科技有限公司 on 2018/1/31.
   Copyright © 2018年 yusz. All rights reserved.
 */
+"Wireless update via APP, can take up to 2-3 attempts, depending on the type of Bluetooth version the device used uses." = "Trådløs opdatering via APP, kan tage op til 2-3 forsøg, alt efter hvilken type Bluetooth version, den anvendte telefon/ device der bruges.";
 "Connect bluetooth" = "Tilslut bluetooth";
 "Control the robot" = "Styr robotten";
 

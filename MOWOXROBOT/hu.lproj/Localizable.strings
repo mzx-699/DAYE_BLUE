@@ -1,3 +1,4 @@
+"Wireless update via APP, can take up to 2-3 attempts, depending on the type of Bluetooth version the device used uses." = "Vezeték nélküli frissítés az APP-n keresztül akár 2-3 próbálkozást is igénybe vehet, a használt eszköz által használt Bluetooth-verzió típusától függően.";
 "confail" = "csatlakozás sikertelen";
 "consucc" = "csatlakozás sikeres";
 "disconnect" = "leválasztás";

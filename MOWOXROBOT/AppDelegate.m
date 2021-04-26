@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "IQKeyboardManager.h"
-
+#import "FirmwareViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -37,8 +37,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     [self keyBoardManager];
-    
     LoginViewController *vc = [[LoginViewController alloc] init];
+//    LoginViewController *vc = [[FirmwareViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = nav;
     

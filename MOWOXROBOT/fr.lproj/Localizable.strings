@@ -1,3 +1,5 @@
+
+"Wireless update via APP, can take up to 2-3 attempts, depending on the type of Bluetooth version the device used uses." = "La mise à jour sans fil via APP peut prendre jusqu'à 2-3 tentatives, selon le type de version Bluetooth utilisé par l'appareil.";
 "confail" = "échec de la connexion";
 "consucc" = "connexion réussite";
 "disconnect" = "déconnecter";

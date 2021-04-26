@@ -43,9 +43,19 @@
     
 }
 
+#pragma mark - 20210426
+///提示栏
+- (void)prepareAlertView {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:LocalString(@"Wireless update via APP, can take up to 2-3 attempts, depending on the type of Bluetooth version the device used uses.") preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alertController addAction:alertAction];
+    [self presentViewController:alertController animated:NO completion:nil];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
+    [self prepareAlertView];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
     self.bluetoothDataManage = [BluetoothDataManage shareInstance];
     //解决navigationitem标题右偏移

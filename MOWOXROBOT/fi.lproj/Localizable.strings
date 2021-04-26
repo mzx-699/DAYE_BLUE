@@ -1,3 +1,4 @@
+"Wireless update via APP, can take up to 2-3 attempts, depending on the type of Bluetooth version the device used uses." = "Langaton päivitys APP: n kautta voi kestää jopa 2-3 yritystä käytetyn laitteen käyttämän Bluetooth-version tyypistä riippuen.";
 "confail" = "Yhdistys epäonnistui";
 "consucc" = "Yhdistys onnistui";
 "disconnect" = "katkaise yhteys";
