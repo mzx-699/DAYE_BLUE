@@ -22,7 +22,7 @@
 
 @property (strong, nonatomic)  UIActivityIndicatorView *activityIndicatorView;
 @property (strong, nonatomic)  ASProgressPopUpView *progressViewNew;
-
+@property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic) int packgeNum_main;
 @property (nonatomic) int packgeNum_motor;
 @property (nonatomic) int packgeNum_right;
@@ -48,7 +48,6 @@
 - (void)prepareAlertView {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:LocalString(@"Wireless update via APP, can take up to 2-3 attempts, depending on the type of Bluetooth version the device used uses.") preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
     }];
     [alertController addAction:alertAction];
     [self presentViewController:alertController animated:NO completion:nil];
@@ -94,6 +93,27 @@
     [self readFileBIN];
 
 }
+#pragma mark - 没有收到返回的定时处理
+- (void)handleUpdate {
+    if (BluetoothDataManage.shareInstance.updateReceiveFlag == 1) {
+        BluetoothDataManage.shareInstance.updateReceiveFlag = 0;
+        return;
+    }
+    else if(BluetoothDataManage.shareInstance.updateReceiveFlag == 0) {
+        [self prepareReupdateAlertView];
+        return;
+    }
+    
+}
+///提示栏
+- (void)prepareReupdateAlertView {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:LocalString(@"Update timed out, please try again") preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
+    }];
+    [alertController addAction:alertAction];
+    [self presentViewController:alertController animated:NO completion:nil];
+}
 
 - (void)readFileBIN{
     //获取bin文件的总包数并记录
@@ -136,7 +156,7 @@
 //单击实现原来大小
 - (void)resetImage:(UITapGestureRecognizer *)recognizer
 {
-    [self.navigationController setNavigationBarHidden:YES animated:nil];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     //创建一个黑色背景
     //初始化一个用来当做背景的View。
     UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
@@ -170,7 +190,7 @@
 
 -(void)closeView{
     [background removeFromSuperview];
-    [self.navigationController setNavigationBarHidden:NO animated:nil];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 //放大过程中出现的缓慢动画
 - (void) shakeToShow:(UIView*)aView{
@@ -215,6 +235,10 @@
 
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
+    
+    [self.timer invalidate];
+    self.timer = nil;
+    
     [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:0] animated:NO];
 }
 
@@ -414,7 +438,10 @@
  **发送固件数据的主函数
  **/
 - (void)updateFirmware:(NSNotification *)notification{
-    
+    NSLog(@"-------开始更新——————————————————————-");
+    [self.timer invalidate];
+    self.timer = nil;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:120 target:self selector:@selector(handleUpdate) userInfo:nil repeats:YES];
     NSDictionary *dict = [notification userInfo];
     NSString *result = dict[@"result"];
     if ([result isEqualToString:@"success"]) {

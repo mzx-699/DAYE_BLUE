@@ -30,7 +30,6 @@ static BluetoothDataManage *sgetonInstanceData = nil;
 @interface BluetoothDataManage ()
 
 @property (strong, nonatomic)  AppDelegate *appDelegate;
-
 @end
 
 @implementation BluetoothDataManage
@@ -56,6 +55,7 @@ static BluetoothDataManage *sgetonInstanceData = nil;
         _dataContent = [[NSMutableArray alloc] init];
         _receiveData = [[NSMutableArray alloc] init];
         _updateSucceseFlag = 1;
+        _updateReceiveFlag = 0;
     }
     return self;
 }
@@ -276,9 +276,7 @@ static BluetoothDataManage *sgetonInstanceData = nil;
 #pragma mark - 处理接收数据
 - (void)handleData:(NSArray *)data
 {
-    /**
-     **用于固件更新
-     **/
+    #pragma mark - 固件更新
     if (![self frameIsRight:data]) {
         //烧固件时判断校验成功or失败
         UInt8 front1 = 0;
@@ -288,7 +286,7 @@ static BluetoothDataManage *sgetonInstanceData = nil;
         UInt8 front5 = 0;
         UInt8 front6 = 0;
         if (data != nil && data.count == 6) {
-            
+            self.updateReceiveFlag = 1;
             if (_updateSucceseFlag == 0) {
                 //最后更新 失败
                 [NSObject showHudTipStr:LocalString(@"FAILED!")];
@@ -308,6 +306,7 @@ static BluetoothDataManage *sgetonInstanceData = nil;
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"shaogujian" object:nil userInfo:dataDic];
             }
         }else if (data != nil && data.count == 2){
+            self.updateReceiveFlag = 1;
             front1 = [data[0] unsignedCharValue];
             front2 = [data[1] unsignedCharValue];
             if (front1 == 79 && front2 == 75) { // 4f 4b ok
@@ -361,6 +360,7 @@ static BluetoothDataManage *sgetonInstanceData = nil;
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"progressNumber" object:nil userInfo:nil];
             }
         }else if (data != nil && data.count == 3){ //更新结束
+            self.updateReceiveFlag = 1;
             front1 = [data[0] unsignedCharValue];
             front2 = [data[1] unsignedCharValue];
             front3 = [data[2] unsignedCharValue];
@@ -811,4 +811,6 @@ static BluetoothDataManage *sgetonInstanceData = nil;
     }
     return crc;
 }
+
+
 @end

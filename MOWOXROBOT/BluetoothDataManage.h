@@ -38,6 +38,8 @@ static dispatch_queue_t queue;
 
 @property (nonatomic) int updateSucceseFlag;// 更新标志
 
+@property (nonatomic, assign) int updateReceiveFlag;
+
 ///@brife 帧数据组成内容
 @property (nonatomic,strong,readonly) NSMutableArray *bluetoothData;
 @property (nonatomic,strong,readonly) NSNumber *dataType;

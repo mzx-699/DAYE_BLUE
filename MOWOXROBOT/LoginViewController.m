@@ -144,6 +144,10 @@
 #pragma mark - ViewController push and back
 - (void)connectMower
 {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:@1234 forKey:@"pincode"];
+    [userDefaults synchronize];
+    NSLog(@"%@", [userDefaults objectForKey:@"pincode"]);
     //测试用直接进入APP
     //    RDVViewController *rdvView = [[RDVViewController alloc] init];
     //    rdvView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
@@ -156,10 +160,10 @@
             
             [NSObject showHudTipStr:LocalString(@"Bluetooth not connected")];
             //断开蓝牙 清除pincode 密码
-            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-            [userDefaults removeObjectForKey:@"password"];
-            [userDefaults removeObjectForKey:@"pincode"];
-            [userDefaults synchronize];
+            
+//            [userDefaults removeObjectForKey:@"password"];
+//            [userDefaults removeObjectForKey:@"pincode"];
+//            [userDefaults synchronize];
             
         }else{
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -243,6 +247,7 @@
 -(void)buttonClickedAtIndex:(NSUInteger)index withText:(NSString *)text
 {
     NSLog(@"buttonIndex = %li password=%@",(long)index,text);
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if(index == 1){
         if(text.length == 0){
             NSLog(@"密码长度不正确Incorrect password length");
@@ -252,9 +257,9 @@
             [NSObject showHudTipStr:LocalString(@"Incorrect PIN code length")];
         }else{
             _resultLabel.text = text;
+//            NSLog(@"%@", text);
             if ([text intValue] == [BluetoothDataManage shareInstance].pincode) {
                 //记录账号密码
-                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                 [userDefaults setObject:_resultLabel.text forKey:@"password"];
                 [userDefaults synchronize];
                
