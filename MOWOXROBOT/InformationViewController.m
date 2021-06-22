@@ -9,6 +9,9 @@
 #import "InformationViewController.h"
 #import "BluetoothDataManage.h"
 
+//static int latestVersion_4 =  402;//更新页面 同时修改！！
+//static int latestVersion = 273;
+
 @interface InformationViewController ()
 
 ///@brife 帧数据控制单例
@@ -31,7 +34,7 @@
     self.label2 = [self label2];
     self.label3 = [self label3];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getVersion) name:@"getMowerData" object:nil];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -45,7 +48,6 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"getMowerData" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -162,6 +164,7 @@
 }
 
 - (void)getVersion{
+    
     _label3.text = [NSString stringWithFormat:@"%@: V%d.%d.%d",LocalString(@"Robot software version"), _bluetoothDataManage.version1,_bluetoothDataManage.version2,_bluetoothDataManage.version3];
 }
 

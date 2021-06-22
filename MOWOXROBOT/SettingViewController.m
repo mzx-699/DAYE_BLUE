@@ -35,36 +35,35 @@
 @end
 
 @implementation SettingViewController
-static int latestVersion_4 =  402;//更新页面 同时修改！！
-static int latestVersion = 273;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     
     self.navigationItem.title = LocalString(@"Setting");
     
     self.bluetoothDataManage = [BluetoothDataManage shareInstance];
     
     [self viewLayoutSet];
-    
-    if ([BluetoothDataManage shareInstance].version1 == 4) {
-        if ([BluetoothDataManage shareInstance].versionupdate < latestVersion_4) {
-            _updateButton.hidden = NO;
-            
-        }else{
-            _updateButton.hidden = YES;
-        }
-    }else if ([BluetoothDataManage shareInstance].version1 == 2){
-        
-        if ([BluetoothDataManage shareInstance].versionupdate < latestVersion) {
-            _updateButton.hidden = NO;
-//            if ([BluetoothDataManage shareInstance].versionupdate <= 268) {
-//                _updateButton.hidden = YES;
-//            }
-        }else{
-            _updateButton.hidden = YES;
-        }
-    }
+  
+    _updateButton.hidden = [BluetoothDataManage shareInstance].isUpdateBtnHidden;
+//    if ([BluetoothDataManage shareInstance].version1 == 4) {
+//        if ([BluetoothDataManage shareInstance].versionupdate < latestVersion_4) {
+//            _updateButton.hidden = NO;
+//
+//        }else{
+//            _updateButton.hidden = YES;
+//        }
+//    }else if ([BluetoothDataManage shareInstance].version1 == 2){
+//
+//        if ([BluetoothDataManage shareInstance].versionupdate < latestVersion) {
+//            _updateButton.hidden = NO;
+////            if ([BluetoothDataManage shareInstance].versionupdate <= 268) {
+////                _updateButton.hidden = YES;
+////            }
+//        }else{
+//            _updateButton.hidden = YES;
+//        }
+//    }
     
     NSLog(@"版本号%d",[BluetoothDataManage shareInstance].versionupdate);
     //分区按钮显示
@@ -87,7 +86,7 @@ static int latestVersion = 273;
         }];
     }
     NSLog(@"分区数值%d",[BluetoothDataManage shareInstance].sectionvalve);
-    NSLog(@"设备数值%d",[BluetoothDataManage shareInstance].deviceType);
+    NSLog(@"设备数值%@",[BluetoothDataManage shareInstance].deviceType);
     NSLog(@"更新的版本%d",[BluetoothDataManage shareInstance].versionupdate);
     //延时1.0秒
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

@@ -38,7 +38,7 @@
     
     [self keyBoardManager];
     LoginViewController *vc = [[LoginViewController alloc] init];
-//    LoginViewController *vc = [[FirmwareViewController alloc] init];
+//    FirmwareViewController *vc = [[FirmwareViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = nav;
     

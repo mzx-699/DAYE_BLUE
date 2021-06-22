@@ -48,7 +48,8 @@ static dispatch_queue_t queue;
 ///@brife 接收的数据帧
 @property (nonatomic,strong,readonly) NSMutableArray *receiveData;
 @property (nonatomic,assign)FrameType frameType;
-
+@property (nonatomic, strong) NSString *updateFirmwareImageName;
+@property (nonatomic, assign) bool isUpdateBtnHidden;
 ///@brife 接收到的pin码
 @property (nonatomic) int pincode;
 

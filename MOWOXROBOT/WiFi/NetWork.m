@@ -96,7 +96,7 @@ static UInt8 frameCount;
     }else{
         dispatch_async(dispatch_get_main_queue(), ^{
             [NSObject showHudTipStr:LocalString(@"Disconnect")];
-            _connectedGateway = nil;
+            self->_connectedGateway = nil;
         });
     }
 

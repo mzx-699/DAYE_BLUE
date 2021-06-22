@@ -246,6 +246,7 @@
             NSArray *allCharacters = service.characteristics;
             for (CBCharacteristic * tempChara in allCharacters)
             {
+                NSLog(@"%@", tempChara.UUID.UUIDString);
                 if ([tempChara.UUID.UUIDString isEqualToString:@"49535343-1E4D-4BD9-BA61-23C647249616"])
                 {
 
@@ -254,22 +255,26 @@
                     //订阅信息
                     [appDelegate.currentPeripheral setNotifyValue:YES forCharacteristic:appDelegate.currentCharacteristic];
                     //接受消息
-                    [weakSelf.baby notify:appDelegate.currentPeripheral
-                           characteristic:appDelegate.currentCharacteristic
+                    [self.baby notify:peripheral
+                           characteristic:tempChara
                                     block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
                                         //NSLog(@"notify block");
-                                        //NSLog(@"new value %@",characteristics.value);
+                                        NSLog(@"new value %@",characteristics.value);
                                         //接受消息
+                                        NSLog(@"%@", weakSelf);
                                         [self receiveBlue:characteristics.value];
                                     }];
                     //[weakSelf dismissViewControllerAnimated:YES completion:nil];
                     [weakSelf.navigationController popViewControllerAnimated:YES];
                     
                 }
+                else if ([tempChara.UUID.UUIDString isEqualToString:@"49535343-8841-43F4-A8D4-ECBE34729BB3"] || [tempChara.UUID.UUIDString isEqualToString:@"49535343-4C8A-39B3-2F49-511CFF073B7E"]) {
+                    NSLog(@"其他特征值");
+                }
             }
         }
     }];
-    //设置读取characteristics的委托
+    //设置读取characteristics的委托 
     //重置读数据block
     [self.baby setBlockOnReadValueForCharacteristicAtChannel:channelOnPeropheralView block:^(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error) {
         NSLog(@"characteristic name:%@ value is:%@",characteristics.UUID,characteristics.value);

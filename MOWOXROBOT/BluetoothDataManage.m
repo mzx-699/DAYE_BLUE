@@ -27,13 +27,45 @@ static const int minuteTime = 60;
 
 static BluetoothDataManage *sgetonInstanceData = nil;
 
+static int latestVersion_4 =  402;//更新页面 同时修改！！
+static int latestVersion = 273;
+
 @interface BluetoothDataManage ()
 
 @property (strong, nonatomic)  AppDelegate *appDelegate;
 @end
 
 @implementation BluetoothDataManage
-
+- (bool)isUpdateBtnHidden {
+    if (_version1 == 4) {
+        if (self.versionupdate < latestVersion_4) {
+            return NO;
+            
+        }else{
+            return YES;
+        }
+    }else if (self.version1 == 2){
+        
+        if (self.versionupdate < latestVersion) {
+            return NO;
+//            if ([BluetoothDataManage shareInstance].versionupdate <= 268) {
+//                _updateButton.hidden = YES;
+//            }
+        }else{
+            return YES;
+        }
+    }
+    return YES;
+}
+- (NSString *)updateFirmwareImageName {
+    if (_deviceType.intValue == 0) {
+        //要显示的图片，即要放大的图片
+        NSLog(@"%@", self.deviceType);
+        return @"updateFirmwareTip0";
+    } else {
+        return @"updateFirmwareTip";
+    }
+}
 + (instancetype)shareInstance{
     static dispatch_once_t once;
     dispatch_once(&once, ^{
@@ -432,6 +464,9 @@ static BluetoothDataManage *sgetonInstanceData = nil;
             [dataDic setObject:batterTemperature forKey:@"batterTemperature"];
             [dataDic setObject:mowerState forKey:@"mowerState"];
             [dataDic setObject:robotState forKey:@"robotState"];
+            
+            [self isUpdateBtnHidden];
+            [self updateFirmwareImageName];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"getMowerData" object:nil userInfo:dataDic];
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

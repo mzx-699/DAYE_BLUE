@@ -36,6 +36,8 @@
     CGRect oldFrame;    //保存图片原来的大小
     CGRect largeFrame;  //确定图片放大最大的程度
 }
+
+
 #pragma mark - 20210426
 ///提示栏
 - (void)prepareAlertView {
@@ -50,7 +52,6 @@
     [super viewDidLoad];
     [self prepareAlertView];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
-    
     //解决navigationitem标题右偏移
     NSArray *viewControllerArray = [self.navigationController viewControllers];
     long previousViewControllerIndex = [viewControllerArray indexOfObject:self] - 1;
@@ -209,12 +210,13 @@
     self->imgView = [[UIImageView alloc] init];
     
     //根据设备类型显示相应图片
-    if ([BluetoothDataManage shareInstance].deviceType == 0) {
-        //要显示的图片，即要放大的图片
-        [imgView setImage:[UIImage imageNamed:@"updateFirmwareTip0"]];
-    }else{
-        [imgView setImage:[UIImage imageNamed:@"updateFirmwareTip"]];
-    }
+    imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[BluetoothDataManage shareInstance].updateFirmwareImageName]];
+//    if ([BluetoothDataManage shareInstance].deviceType == 0) {
+//        //要显示的图片，即要放大的图片
+//        [imgView setImage:[UIImage imageNamed:@"updateFirmwareTip0"]];
+//    }else{
+//        [imgView setImage:[UIImage imageNamed:@"updateFirmwareTip"]];
+//    }
     [bgView addSubview:imgView];
     [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(ScreenHeight,ScreenWidth));
@@ -294,11 +296,15 @@
     _activityIndicatorView.hidesWhenStopped = YES;
     [self.view addSubview:_activityIndicatorView];
     //根据设备类型显示相应图片
-    if ([BluetoothDataManage shareInstance].deviceType == 0) {
-        _tipImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"updateFirmwareTip0"]];
-    }else{
-        _tipImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"updateFirmwareTip"]];
-    }
+    _tipImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[BluetoothDataManage shareInstance].updateFirmwareImageName]];
+//    if ([BluetoothDataManage shareInstance].deviceType == 0) {
+//        _tipImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"updateFirmwareTip0"]];
+//    }else{
+//        _tipImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"updateFirmwareTip"]];
+//    }
+    UIImage *image1 = [UIImage imageNamed:[BluetoothDataManage shareInstance].updateFirmwareImageName];
+    NSLog(@"%@", [BluetoothDataManage shareInstance].updateFirmwareImageName);
+    NSLog(@"%@",image1);
     [self.view addSubview:_tipImage];
     NSString *deviceType = [UIDevice currentDevice].model;
     

@@ -29,7 +29,9 @@
 {
     UITextField *textField = [[inputTextField alloc] init];
     textField.placeholder = text;
-    [textField setValue:[UIColor blackColor] forKeyPath:@"_placeholderLabel.textColor"];
+//    [textField setValue:[UIColor blackColor] forKeyPath:@"_placeholderLabel.textColor"];
+    NSMutableAttributedString *placeholderString = [[NSMutableAttributedString alloc] initWithString:text attributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
+    textField.attributedPlaceholder = placeholderString;
     [textField setFont:[UIFont boldSystemFontOfSize:20]];
     textField.font = [UIFont systemFontOfSize:20.0f];
     textField.textColor = [UIColor blackColor];
