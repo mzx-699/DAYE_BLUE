@@ -625,8 +625,14 @@ static int latestVersion = 273;
             NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
             NSNumber *rain = _receiveData[4];
             NSNumber *boundary = _receiveData[5];
+            NSNumber *helix = _receiveData[7];
+            NSNumber *hour = _receiveData[8];
+            NSNumber *min = _receiveData[9];
             [dataDic setObject:rain forKey:@"rain"];
             [dataDic setObject:boundary forKey:@"boundary"];
+            [dataDic setObject:helix forKey:@"helix"];
+            [dataDic setObject:hour forKey:@"hour"];
+            [dataDic setObject:min forKey:@"min"];
             if ([BluetoothDataManage shareInstance].version1 == 4) {
                 NSNumber *ultrasound = _receiveData[6];
                 [dataDic setObject:ultrasound forKey:@"ultrasound"];

@@ -296,6 +296,11 @@
             self.errorAlert = LocalString(@"PCB Over temperature");
         }
             break;
+        case 0x41: //Obstacle On Wire
+        {
+            self.errorAlert = LocalString(@"Obstacle On Wire");
+        }
+            break;
         default:
         {
             self.errorAlert = LocalString(@"Errors that do not exist");
