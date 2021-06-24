@@ -225,6 +225,7 @@ static int isHelix = 0;
     NSNumber *helix = dict[@"helix"];
     NSNumber *hour = dict[@"hour"];
     NSNumber *min = dict[@"min"];
+
     dispatch_async(dispatch_get_main_queue(), ^{
         if ([rain intValue] == 0) {
             [self rainSetNo];
@@ -284,10 +285,25 @@ static int isHelix = 0;
     [self.helixyesButton.layer setBackgroundColor:[UIColor clearColor].CGColor];
     [self.helixnoButton.layer setBackgroundColor:[UIColor lightGrayColor].CGColor];
 }
-
+- (void)setRainDelayAlert {
+    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Error" message:@"Please input the correct rain delay time." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *done = [UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleDefault handler:nil];
+    [ac addAction:done];
+    [self presentViewController:ac animated:NO completion:nil];
+}
 - (void)MowerSetting{
-    NSNumber *hour = @([self.rainDelayView.hourTextField.text integerValue]);
-    NSNumber *min = @([self.rainDelayView.minTextField.text integerValue]);
+    NSNumber *hour = [NSNumber numberWithInt:0];
+    NSNumber *min = [NSNumber numberWithInt:0];
+    if (![self.rainDelayView.hourTextField.text isEqualToString:@""]) {
+        hour = @([self.rainDelayView.hourTextField.text integerValue]);
+    }
+    if (![self.rainDelayView.minTextField.text isEqualToString:@""]) {
+        min = @([self.rainDelayView.minTextField.text integerValue]);
+    }
+    if(!((hour.intValue < 24 && hour.intValue > 0) && (min.intValue < 60 && min.intValue > 0))) {
+        [self setRainDelayAlert];
+        return;
+    }
     NSMutableArray *dataContent = [[NSMutableArray alloc] init];
     [dataContent addObject:[NSNumber numberWithUnsignedInteger:isRain]];
     [dataContent addObject:[NSNumber numberWithUnsignedInteger:isBoundary]];
