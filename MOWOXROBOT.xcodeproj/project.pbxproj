@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		185030392689CFD600F57975 /* DY02273.BIN in Resources */ = {isa = PBXBuildFile; fileRef = 185030382689CFD600F57975 /* DY02273.BIN */; };
+		1850303A2689CFD600F57975 /* DY02273.BIN in Resources */ = {isa = PBXBuildFile; fileRef = 185030382689CFD600F57975 /* DY02273.BIN */; };
+		1850303B2689CFD600F57975 /* DY02273.BIN in Resources */ = {isa = PBXBuildFile; fileRef = 185030382689CFD600F57975 /* DY02273.BIN */; };
 		18DFC33226831A1100406CF8 /* rainDelayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DFC33126831A1100406CF8 /* rainDelayView.m */; };
 		18DFC33326831A1100406CF8 /* rainDelayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DFC33126831A1100406CF8 /* rainDelayView.m */; };
 		18DFC33426831A1100406CF8 /* rainDelayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DFC33126831A1100406CF8 /* rainDelayView.m */; };
@@ -223,9 +226,6 @@
 		366A92AD24F644D2001996B5 /* DY12273.BIN in Resources */ = {isa = PBXBuildFile; fileRef = 366A929F24F644D2001996B5 /* DY12273.BIN */; };
 		366A92AE24F644D2001996B5 /* DY12273.BIN in Resources */ = {isa = PBXBuildFile; fileRef = 366A929F24F644D2001996B5 /* DY12273.BIN */; };
 		366A92AF24F644D2001996B5 /* DY12273.BIN in Resources */ = {isa = PBXBuildFile; fileRef = 366A929F24F644D2001996B5 /* DY12273.BIN */; };
-		366A92B024F644D2001996B5 /* DY02273.BIN in Resources */ = {isa = PBXBuildFile; fileRef = 366A92A024F644D2001996B5 /* DY02273.BIN */; };
-		366A92B124F644D2001996B5 /* DY02273.BIN in Resources */ = {isa = PBXBuildFile; fileRef = 366A92A024F644D2001996B5 /* DY02273.BIN */; };
-		366A92B224F644D2001996B5 /* DY02273.BIN in Resources */ = {isa = PBXBuildFile; fileRef = 366A92A024F644D2001996B5 /* DY02273.BIN */; };
 		368E4ED4238D1B8300AFE3B3 /* WTReTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0F914B200C7EFB0060D287 /* WTReTextField.m */; };
 		368E4ED5238D1B8300AFE3B3 /* ESP_ByteUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8D9458213FE0710079EE63 /* ESP_ByteUtil.m */; };
 		368E4ED6238D1B8300AFE3B3 /* InformationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5815D71FB0375E00E93520 /* InformationTableViewController.m */; };
@@ -621,6 +621,7 @@
 
 /* Begin PBXFileReference section */
 		0291E74477A8630ADD2815B9 /* Pods-MOWOXROBOT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOWOXROBOT.release.xcconfig"; path = "Pods/Target Support Files/Pods-MOWOXROBOT/Pods-MOWOXROBOT.release.xcconfig"; sourceTree = "<group>"; };
+		185030382689CFD600F57975 /* DY02273.BIN */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = DY02273.BIN; sourceTree = "<group>"; };
 		18DFC33026831A1100406CF8 /* rainDelayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rainDelayView.h; sourceTree = "<group>"; };
 		18DFC33126831A1100406CF8 /* rainDelayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rainDelayView.m; sourceTree = "<group>"; };
 		36006B192265AFDB00F4EEB2 /* MOWOX_Park.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOWOX_Park.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -654,7 +655,6 @@
 		366A929D24F644D2001996B5 /* DY01273.BIN */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = DY01273.BIN; sourceTree = "<group>"; };
 		366A929E24F644D2001996B5 /* DY00273.BIN */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = DY00273.BIN; sourceTree = "<group>"; };
 		366A929F24F644D2001996B5 /* DY12273.BIN */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = DY12273.BIN; sourceTree = "<group>"; };
-		366A92A024F644D2001996B5 /* DY02273.BIN */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = DY02273.BIN; sourceTree = "<group>"; };
 		368E4F94238D1B8300AFE3B3 /* MOWOX_BLU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOWOX_BLU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		368E4F95238D1B8300AFE3B3 /* MOWOXBLU-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MOWOXBLU-Info.plist"; path = "/Users/anjianwei/Desktop/DAYE/MOWOXBLU-Info.plist"; sourceTree = "<absolute>"; };
 		368E505B238D296E00AFE3B3 /* MOWOX_GN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOWOX_GN.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1036,8 +1036,8 @@
 				3658FEEC25303FE300815B94 /* DY15273.BIN */,
 				366A929E24F644D2001996B5 /* DY00273.BIN */,
 				366A929D24F644D2001996B5 /* DY01273.BIN */,
-				366A92A024F644D2001996B5 /* DY02273.BIN */,
 				366A929B24F644D1001996B5 /* DY11273.BIN */,
+				185030382689CFD600F57975 /* DY02273.BIN */,
 				366A929F24F644D2001996B5 /* DY12273.BIN */,
 				366A929C24F644D1001996B5 /* DY14273.BIN */,
 			);
@@ -1778,7 +1778,6 @@
 				36006A932265AFDB00F4EEB2 /* DeviceTableViewCell.xib in Resources */,
 				36006A972265AFDB00F4EEB2 /* B3_50@2x.png in Resources */,
 				36006A982265AFDB00F4EEB2 /* loginView@2x.png in Resources */,
-				366A92B024F644D2001996B5 /* DY02273.BIN in Resources */,
 				368E506F238D2F4100AFE3B3 /* Launch_Park.storyboard in Resources */,
 				36006A992265AFDB00F4EEB2 /* A2@2x.png in Resources */,
 				36006A9A2265AFDB00F4EEB2 /* ic_nav_more_black@3x.png in Resources */,
@@ -1839,6 +1838,7 @@
 				36006ADC2265AFDB00F4EEB2 /* 电量4-2@1x.png in Resources */,
 				36006ADD2265AFDB00F4EEB2 /* 60x60@2x.png in Resources */,
 				36006ADE2265AFDB00F4EEB2 /* A6@1x.png in Resources */,
+				185030392689CFD600F57975 /* DY02273.BIN in Resources */,
 				36006AE12265AFDB00F4EEB2 /* Generalsetting@2x.png in Resources */,
 				36006AE22265AFDB00F4EEB2 /* 电量2-2@1x.png in Resources */,
 				36006AE32265AFDB00F4EEB2 /* zx_code_line@2x.png in Resources */,
@@ -1892,6 +1892,7 @@
 				368E4F1B238D1B8300AFE3B3 /* updateFirmwareTip0@2x.png in Resources */,
 				368E4F1C238D1B8300AFE3B3 /* 电量2@1x.png in Resources */,
 				368E4F1D238D1B8300AFE3B3 /* icon-150@3x.png in Resources */,
+				1850303A2689CFD600F57975 /* DY02273.BIN in Resources */,
 				368E4F1E238D1B8300AFE3B3 /* 120x120@2x.png in Resources */,
 				368E4F1F238D1B8300AFE3B3 /* 机器人APP1+2(1)-3.png in Resources */,
 				368E4F20238D1B8300AFE3B3 /* BluetoothWelcome1_5.5@2x.png in Resources */,
@@ -1918,7 +1919,6 @@
 				368E4F34238D1B8300AFE3B3 /* icon-60@3x.png in Resources */,
 				368E4F35238D1B8300AFE3B3 /* Localizable.strings in Resources */,
 				368E4F36238D1B8300AFE3B3 /* B2_50@2x.png in Resources */,
-				366A92B124F644D2001996B5 /* DY02273.BIN in Resources */,
 				368E4F37238D1B8300AFE3B3 /* 蓝牙图标@2x.png in Resources */,
 				368E4F38238D1B8300AFE3B3 /* A3@3x.png in Resources */,
 				368E4F39238D1B8300AFE3B3 /* parkimage@2x.png in Resources */,
@@ -2048,7 +2048,6 @@
 				368E4FF7238D296E00AFE3B3 /* ic_nav_more_black@3x.png in Resources */,
 				368E4FF8238D296E00AFE3B3 /* 60x60@3x.png in Resources */,
 				368E4FF9238D296E00AFE3B3 /* icon-60.png in Resources */,
-				366A92B224F644D2001996B5 /* DY02273.BIN in Resources */,
 				368E5073238D3D4D00AFE3B3 /* Launch_GN.storyboard in Resources */,
 				368E4FFA238D296E00AFE3B3 /* icon-60@3x.png in Resources */,
 				368E5068238D2B3500AFE3B3 /* 120x120.png in Resources */,
@@ -2065,6 +2064,7 @@
 				368E5003238D296E00AFE3B3 /* Pinsetting@1x.png in Resources */,
 				368E5004238D296E00AFE3B3 /* right@1x.png in Resources */,
 				368E5005238D296E00AFE3B3 /* 80@3x.png in Resources */,
+				1850303B2689CFD600F57975 /* DY02273.BIN in Resources */,
 				368E5006238D296E00AFE3B3 /* WorkingtimeSetting@1x.png in Resources */,
 				368E5007238D296E00AFE3B3 /* 80x80@2x.png in Resources */,
 				368E5008238D296E00AFE3B3 /* backgroundro@1x.png in Resources */,

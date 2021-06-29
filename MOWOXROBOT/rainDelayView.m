@@ -37,6 +37,7 @@
         _hourTextField = [[UITextField alloc] init];
         _hourTextField.borderStyle = UITextBorderStyleRoundedRect;
         _hourTextField.placeholder = @"hour";
+        _hourTextField.text = @"2";
         _hourTextField.keyboardType = UIKeyboardTypeNumberPad;
         _hourTextField.backgroundColor = [UIColor clearColor];
         _hourTextField.borderStyle = UITextBorderStyleNone;
@@ -51,6 +52,7 @@
         _minTextField = [[UITextField alloc] init];
         _minTextField.borderStyle = UITextBorderStyleRoundedRect;
         _minTextField.placeholder = @"min";
+        _minTextField.text = @"0";
         _minTextField.keyboardType = UIKeyboardTypeNumberPad;
         _minTextField.backgroundColor = [UIColor clearColor];
         _minTextField.borderStyle = UITextBorderStyleNone;

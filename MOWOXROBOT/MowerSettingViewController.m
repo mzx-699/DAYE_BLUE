@@ -132,7 +132,7 @@ static int isHelix = 0;
         }];
     }else if([deviceType isEqualToString:@"iPad"]) {
         //iPad
-        [_rainLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_rainDelayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(ScreenWidth * 0.82, ScreenHeight * 0.066));
             make.centerX.equalTo(self.view.mas_centerX);
             make.top.equalTo(self.view.mas_top).offset(ScreenHeight * 0.005 + 44 + 64);
@@ -300,7 +300,15 @@ static int isHelix = 0;
     if (![self.rainDelayView.minTextField.text isEqualToString:@""]) {
         min = @([self.rainDelayView.minTextField.text integerValue]);
     }
-    if(!((hour.intValue < 24 && hour.intValue > 0) && (min.intValue < 60 && min.intValue > 0))) {
+    if(!(((hour.intValue * 60 + min.intValue) < 600) && ((hour.intValue * 60 + min.intValue) >= 1))) {
+        [self setRainDelayAlert];
+        return;
+    }
+    if(hour.intValue == 0 && !(min.intValue < 60 && min.intValue > 0)) {
+        [self setRainDelayAlert];
+        return;
+    }
+    if(hour.intValue != 0 && !(min.intValue < 60 && min.intValue >= 0)) {
         [self setRainDelayAlert];
         return;
     }

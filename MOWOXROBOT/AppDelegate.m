@@ -11,7 +11,7 @@
 #import "IQKeyboardManager.h"
 #import "FirmwareViewController.h"
 #import "MowerSettingViewController.h"
-
+#import "MowerSetingVC_type4.h"
 @interface AppDelegate ()
 
 @end
@@ -39,9 +39,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     [self keyBoardManager];
-//    LoginViewController *vc = [[LoginViewController alloc] init];
+    LoginViewController *vc = [[LoginViewController alloc] init];
 //    FirmwareViewController *vc = [[FirmwareViewController alloc] init];
-    MowerSettingViewController *vc = [[MowerSettingViewController alloc] init];
+//    MowerSetingVC_type4 *vc = [[MowerSetingVC_type4 alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = nav;
     

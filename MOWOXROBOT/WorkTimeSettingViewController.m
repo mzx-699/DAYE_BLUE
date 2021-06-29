@@ -388,7 +388,7 @@ static CGFloat cellHeight = 45.0;
     [_selectrowArray replaceObjectAtIndex:rowWeek %_dayArray.count * 4 + 1 withObject:[NSNumber numberWithLong:startMinutesRow %_starMinuteArray.count]];
     [_selectrowArray replaceObjectAtIndex:rowWeek %_dayArray.count * 4 + 2 withObject:[NSNumber numberWithLong:workHourRow %_workingHoursArray.count]];
     [_selectrowArray replaceObjectAtIndex:rowWeek %_dayArray.count * 4 + 3 withObject:[NSNumber numberWithLong:wokrMinutesRow % _workingMinuteArray.count]];
-    NSLog(@"%ld %ld %ld %ld %ld",rowWeek %_dayArray.count,startHourRow % _starHourArray.count,startMinutesRow %_starMinuteArray.count,workHourRow %_workingHoursArray.count,wokrMinutesRow % _workingMinuteArray.count);
+    NSLog(@"%u %ld %ld %ld %ld",rowWeek %_dayArray.count,startHourRow % _starHourArray.count,startMinutesRow %_starMinuteArray.count,workHourRow %_workingHoursArray.count,wokrMinutesRow % _workingMinuteArray.count);
     
     //调用发送设置
     [self sentMowerTime];

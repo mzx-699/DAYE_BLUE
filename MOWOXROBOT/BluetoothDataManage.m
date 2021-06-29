@@ -31,11 +31,13 @@ static int latestVersion_4 =  402;//更新页面 同时修改！！
 static int latestVersion = 273;
 
 @interface BluetoothDataManage ()
+@property (nonatomic, assign) int updateFlag;
 
 @property (strong, nonatomic)  AppDelegate *appDelegate;
 @end
 
 @implementation BluetoothDataManage
+
 - (bool)isUpdateBtnHidden {
     if (_version1 == 4) {
         if (self.versionupdate < latestVersion_4) {
@@ -317,12 +319,25 @@ static int latestVersion = 273;
         UInt8 front4 = 0;
         UInt8 front5 = 0;
         UInt8 front6 = 0;
+        
+        if(data != nil && data.count >= 2) {
+            front1 = [data[0] unsignedCharValue];
+            front2 = [data[1] unsignedCharValue];
+            if (front1 == 255 && front2 == 255){ //更新完成
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"updateSuccese" object:nil userInfo:nil];
+                    
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"progressNumber" object:nil userInfo:nil];
+                self.updateFlag = 0;
+            }
+        }
+        
         if (data != nil && data.count == 6) {
             self.updateReceiveFlag = 1;
             if (_updateSucceseFlag == 0) {
                 //最后更新 失败
                 [NSObject showHudTipStr:LocalString(@"FAILED!")];
                 _updateSucceseFlag = 1;
+                
                 return;
             }
             front1 = [data[0] unsignedCharValue];
@@ -336,12 +351,13 @@ static int latestVersion = 273;
                 NSString *result = @"error";
                 [dataDic setObject:result forKey:@"result"];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"shaogujian" object:nil userInfo:dataDic];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"shaogujianOld" object:nil userInfo:dataDic];
             }
-        }else if (data != nil && data.count == 2){
+        } else if (data != nil && data.count == 2){
             self.updateReceiveFlag = 1;
             front1 = [data[0] unsignedCharValue];
             front2 = [data[1] unsignedCharValue];
-            if (front1 == 79 && front2 == 75) { // 4f 4b ok
+            if (front1 == 79 && front2 == 75 && self.updateFlag == 1) { // 4f 4b ok
                 if (!self.updateFirmware_j) {
                     self.updateFirmware_j = 0;
                 }
@@ -360,7 +376,8 @@ static int latestVersion = 273;
                     }
                         break;
                     case 1:
-                        self.updateFirmware_packageNum--;
+                        self.updateFirmware_packageNum = self.updateFirmware_packageNum - 1;
+                        NSLog(@"self.updateFirmware_packageNum - %d", self.updateFirmware_packageNum);
                         break;
                     case 2:
                         self.updateFirmware_packageNum_Motor--;
@@ -385,11 +402,15 @@ static int latestVersion = 273;
                 [dataDic setObject:result forKey:@"result"];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"progressNumber" object:nil userInfo:nil];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"shaogujian" object:nil userInfo:dataDic];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"shaogujianOld" object:nil userInfo:dataDic];
                 self.progress_num++;
             }
             if (front1 == 255 && front2 == 255){ //更新完成
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"updateSuccese" object:nil userInfo:nil];
+                
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"progressNumber" object:nil userInfo:nil];
+                self.updateFlag = 0;
+                
             }
         }else if (data != nil && data.count == 3){ //更新结束
             self.updateReceiveFlag = 1;
@@ -437,7 +458,7 @@ static int latestVersion = 273;
         [_receiveData removeAllObjects];
         [_receiveData addObjectsFromArray:data];
         self.frameType = [self checkOutType:data];//判断数据类型
-        if (self.frameType == otherFrame || _receiveData.count != 22) {
+        if (self.frameType == otherFrame) {
             
             NSLog(@"接收到未知的数据帧");
             
@@ -640,7 +661,11 @@ static int latestVersion = 273;
             }
             [[NSNotificationCenter defaultCenter] postNotificationName:@"recieveMowerSetting" object:nil userInfo:dataDic];
         }else if (self.frameType == updateFirmware){
+            
             [[NSNotificationCenter defaultCenter] postNotificationName:@"recieveUpdateFirmware" object:nil userInfo:nil];
+            self.updateFlag = 1;
+              
+            
         }else if (self.frameType == getPinCode){
             NSNumber *thousand = _receiveData[4];
             NSNumber *hungred = _receiveData[5];
@@ -743,9 +768,12 @@ static int latestVersion = 273;
         UInt8 front1 = [data[0] unsignedCharValue];
         UInt8 front2 = [data[1] unsignedCharValue];
         UInt8 front3 = [data[2] unsignedCharValue];
-        
+        UInt8 front4 = [data[3] unsignedCharValue];
         if (front1 != 0x44 || front2 != 0x59 || front3 != 0x4d) {
             return NO;
+        }
+        if (front1 == 0x44 && front2 == 0x44 && front3 == 0x59 && front4 == 0x4d) {
+            return YES;
         }
     }else{
         return NO;
@@ -763,8 +791,12 @@ static int latestVersion = 273;
     unsigned char type[LEN]= {
         0x80,0x82,0x83,0x84,0x85,0x8e,0x89,0x8a,0x8c,0x86,0x8d,0x8f,0x7f
     };
-    
-    dataType = [data[3] unsignedIntegerValue];
+    UInt8 font2 = [data[1] unsignedCharValue];
+    if (font2 == 0x44) {
+        dataType = [data[4] unsignedIntegerValue];
+    } else {
+        dataType = [data[3] unsignedIntegerValue];
+    }
     NSLog(@"%d", dataType);
     
     FrameType returnVal = otherFrame;
