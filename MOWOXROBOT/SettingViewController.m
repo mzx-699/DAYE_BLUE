@@ -46,24 +46,7 @@
     [self viewLayoutSet];
   
     _updateButton.hidden = [BluetoothDataManage shareInstance].isUpdateBtnHidden;
-//    if ([BluetoothDataManage shareInstance].version1 == 4) {
-//        if ([BluetoothDataManage shareInstance].versionupdate < latestVersion_4) {
-//            _updateButton.hidden = NO;
-//
-//        }else{
-//            _updateButton.hidden = YES;
-//        }
-//    }else if ([BluetoothDataManage shareInstance].version1 == 2){
-//
-//        if ([BluetoothDataManage shareInstance].versionupdate < latestVersion) {
-//            _updateButton.hidden = NO;
-////            if ([BluetoothDataManage shareInstance].versionupdate <= 268) {
-////                _updateButton.hidden = YES;
-////            }
-//        }else{
-//            _updateButton.hidden = YES;
-//        }
-//    }
+//    _updateButton.hidden = YES;
     
     NSLog(@"版本号%d",[BluetoothDataManage shareInstance].versionupdate);
     //分区按钮显示

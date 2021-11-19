@@ -48,22 +48,32 @@ static dispatch_queue_t queue;
 ///@brife 接收的数据帧
 @property (nonatomic,strong,readonly) NSMutableArray *receiveData;
 @property (nonatomic,assign)FrameType frameType;
-@property (nonatomic, strong) NSString *updateFirmwareImageName;
 @property (nonatomic, assign) bool isUpdateBtnHidden;
+
 ///@brife 接收到的pin码
 @property (nonatomic) int pincode;
 
 ///@brife 收到的版本信息
 @property (nonatomic, strong) NSNumber *deviceType;
-@property (nonatomic) int version1;
-@property (nonatomic) int version2;
-@property (nonatomic) int version3;
+
+
 //@接收值第五位返回的pin值
 @property (nonatomic) int sectionvalve;
 //@获取分区信息1d
 @property (nonatomic) int getAeraMessage;
 //@更新版本信息
 @property (nonatomic) int versionupdate;
+
+
+#pragma mark - 2021.10.8 改
+@property (nonatomic) NSMutableString *versionString;
+@property (nonatomic) NSMutableString *updateString;
+@property (nonatomic) int version1;
+@property (nonatomic) int version2;
+@property (nonatomic) int version3;
+@property (nonatomic) int version4;
+- (NSString*) updateFirmwareImageName;
+- (bool) updateHelixset;
 
 + (instancetype)shareInstance;
 

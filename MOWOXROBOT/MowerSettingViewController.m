@@ -196,6 +196,14 @@ static int isHelix = 0;
         make.centerX.equalTo(self.view.mas_centerX);
         make.top.equalTo(self.helixnoButton.mas_bottom).offset(ScreenHeight * 0.05);
     }];
+    
+    
+    #pragma mark - 2021.10.18 改
+    [_helixLabel setHidden:[[BluetoothDataManage shareInstance] updateHelixset]];
+    [_helixyesButton setHidden:[[BluetoothDataManage shareInstance] updateHelixset]];
+    [_helixnoButton setHidden:[[BluetoothDataManage shareInstance] updateHelixset]];
+
+    
 
 }
 

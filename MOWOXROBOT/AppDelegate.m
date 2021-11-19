@@ -12,6 +12,8 @@
 #import "FirmwareViewController.h"
 #import "MowerSettingViewController.h"
 #import "MowerSetingVC_type4.h"
+#import "MainViewController.h"
+#import "RobotRunTimeViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -40,6 +42,7 @@
     
     [self keyBoardManager];
     LoginViewController *vc = [[LoginViewController alloc] init];
+//    MainViewController *vc = [MainViewController new];
 //    FirmwareViewController *vc = [[FirmwareViewController alloc] init];
 //    MowerSetingVC_type4 *vc = [[MowerSetingVC_type4 alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
