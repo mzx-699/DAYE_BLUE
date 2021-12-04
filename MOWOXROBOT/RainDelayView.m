@@ -6,16 +6,16 @@
 //  Copyright © 2021 yusz. All rights reserved.
 //
 
-#import "rainDelayView.h"
+#import "RainDelayView.h"
 
-@interface rainDelayView ()
+@interface RainDelayView ()
 
 @property (nonatomic, strong) UILabel *timeLbael;
 @property (nonatomic, strong) UILabel *hourLabel;
 @property (nonatomic, strong) UILabel *minLabel;
 
 @end  
-@implementation rainDelayView
+@implementation RainDelayView
 - (instancetype)init
 {
     self = [super init];

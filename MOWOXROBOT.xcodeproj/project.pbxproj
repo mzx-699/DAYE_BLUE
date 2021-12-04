@@ -76,9 +76,9 @@
 		18A4CDC9273B61AF00B3B7C4 /* DA11402.bin in Resources */ = {isa = PBXBuildFile; fileRef = 18A4CD8F273B61AF00B3B7C4 /* DA11402.bin */; };
 		18A4CDCA273B61AF00B3B7C4 /* DA11402.bin in Resources */ = {isa = PBXBuildFile; fileRef = 18A4CD8F273B61AF00B3B7C4 /* DA11402.bin */; };
 		18A4CDCB273B61AF00B3B7C4 /* DA11402.bin in Resources */ = {isa = PBXBuildFile; fileRef = 18A4CD8F273B61AF00B3B7C4 /* DA11402.bin */; };
-		18DFC33226831A1100406CF8 /* rainDelayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DFC33126831A1100406CF8 /* rainDelayView.m */; };
-		18DFC33326831A1100406CF8 /* rainDelayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DFC33126831A1100406CF8 /* rainDelayView.m */; };
-		18DFC33426831A1100406CF8 /* rainDelayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DFC33126831A1100406CF8 /* rainDelayView.m */; };
+		18DFC33226831A1100406CF8 /* RainDelayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DFC33126831A1100406CF8 /* RainDelayView.m */; };
+		18DFC33326831A1100406CF8 /* RainDelayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DFC33126831A1100406CF8 /* RainDelayView.m */; };
+		18DFC33426831A1100406CF8 /* RainDelayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DFC33126831A1100406CF8 /* RainDelayView.m */; };
 		36006A3C2265AFDB00F4EEB2 /* WTReTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0F914B200C7EFB0060D287 /* WTReTextField.m */; };
 		36006A3D2265AFDB00F4EEB2 /* ESP_ByteUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8D9458213FE0710079EE63 /* ESP_ByteUtil.m */; };
 		36006A3E2265AFDB00F4EEB2 /* InformationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5815D71FB0375E00E93520 /* InformationTableViewController.m */; };
@@ -686,8 +686,8 @@
 		18A4CD8D273B61AF00B3B7C4 /* GY14274.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = GY14274.bin; sourceTree = "<group>"; };
 		18A4CD8E273B61AF00B3B7C4 /* DY01274.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = DY01274.bin; sourceTree = "<group>"; };
 		18A4CD8F273B61AF00B3B7C4 /* DA11402.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = DA11402.bin; sourceTree = "<group>"; };
-		18DFC33026831A1100406CF8 /* rainDelayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rainDelayView.h; sourceTree = "<group>"; };
-		18DFC33126831A1100406CF8 /* rainDelayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rainDelayView.m; sourceTree = "<group>"; };
+		18DFC33026831A1100406CF8 /* RainDelayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RainDelayView.h; sourceTree = "<group>"; };
+		18DFC33126831A1100406CF8 /* RainDelayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RainDelayView.m; sourceTree = "<group>"; };
 		36006B192265AFDB00F4EEB2 /* MOWOX_Park.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOWOX_Park.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3604FD41225B355F00D0B97D /* MOWOXROBOT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MOWOXROBOT.entitlements; sourceTree = "<group>"; };
 		36067D9221BF5CEB00FB6865 /* updateFirmwareTip0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "updateFirmwareTip0@2x.png"; path = "image/updateFirmwareTip0@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -1192,8 +1192,8 @@
 				36BF86C12383C733009EA9AB /* BlueTableViewCell.m */,
 				36BEE70B2439FE7F00684369 /* WorktimeCell_268.h */,
 				36BEE70C2439FE7F00684369 /* WorktimeCell_268.m */,
-				18DFC33026831A1100406CF8 /* rainDelayView.h */,
-				18DFC33126831A1100406CF8 /* rainDelayView.m */,
+				18DFC33026831A1100406CF8 /* RainDelayView.h */,
+				18DFC33126831A1100406CF8 /* RainDelayView.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -1315,6 +1315,7 @@
 				368E5072238D3D4D00AFE3B3 /* Launch_GN.storyboard */,
 				BB1299302021A79500285201 /* Localizable.strings */,
 				368E507B238F665E00AFE3B3 /* MOWOX_Park.plist */,
+				18A4CD7B273B61AF00B3B7C4 /* bin */,
 				3E6325251FA6BC5F00F14462 /* Supporting Files */,
 				BBA446562101742A00D3B30E /* MOWOXROBOT */,
 				361FF0592255B65D00A5108D /* BLU_Images.xcassets */,
@@ -1326,7 +1327,6 @@
 		3E6325251FA6BC5F00F14462 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				18A4CD7B273B61AF00B3B7C4 /* bin */,
 				3E6325261FA6BC5F00F14462 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -2418,7 +2418,7 @@
 				36006A442265AFDB00F4EEB2 /* LoginViewController.m in Sources */,
 				36006A452265AFDB00F4EEB2 /* ESPGuideCode.m in Sources */,
 				36006A462265AFDB00F4EEB2 /* LMPopInputPasswordView.m in Sources */,
-				18DFC33226831A1100406CF8 /* rainDelayView.m in Sources */,
+				18DFC33226831A1100406CF8 /* RainDelayView.m in Sources */,
 				36006A472265AFDB00F4EEB2 /* MowerSettingViewController.m in Sources */,
 				36006A482265AFDB00F4EEB2 /* NSObject+Common.m in Sources */,
 				36006A492265AFDB00F4EEB2 /* UIButton+Common.m in Sources */,
@@ -2495,7 +2495,7 @@
 				368E4EDC238D1B8300AFE3B3 /* LoginViewController.m in Sources */,
 				368E4EDD238D1B8300AFE3B3 /* ESPGuideCode.m in Sources */,
 				368E4EDE238D1B8300AFE3B3 /* LMPopInputPasswordView.m in Sources */,
-				18DFC33326831A1100406CF8 /* rainDelayView.m in Sources */,
+				18DFC33326831A1100406CF8 /* RainDelayView.m in Sources */,
 				368E4EDF238D1B8300AFE3B3 /* MowerSettingViewController.m in Sources */,
 				368E4EE0238D1B8300AFE3B3 /* NSObject+Common.m in Sources */,
 				368E4EE1238D1B8300AFE3B3 /* UIButton+Common.m in Sources */,
@@ -2572,7 +2572,7 @@
 				368E4FA3238D296E00AFE3B3 /* LoginViewController.m in Sources */,
 				368E4FA4238D296E00AFE3B3 /* ESPGuideCode.m in Sources */,
 				368E4FA5238D296E00AFE3B3 /* LMPopInputPasswordView.m in Sources */,
-				18DFC33426831A1100406CF8 /* rainDelayView.m in Sources */,
+				18DFC33426831A1100406CF8 /* RainDelayView.m in Sources */,
 				368E4FA6238D296E00AFE3B3 /* MowerSettingViewController.m in Sources */,
 				368E4FA7238D296E00AFE3B3 /* NSObject+Common.m in Sources */,
 				368E4FA8238D296E00AFE3B3 /* UIButton+Common.m in Sources */,

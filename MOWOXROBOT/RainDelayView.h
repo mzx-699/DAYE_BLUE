@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface rainDelayView : UIView
+@interface RainDelayView : UIView
 @property (nonatomic, strong) UITextField *hourTextField;
 @property (nonatomic, strong) UITextField *minTextField;
 @end

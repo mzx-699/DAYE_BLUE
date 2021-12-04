@@ -46,7 +46,6 @@
     [self viewLayoutSet];
   
     _updateButton.hidden = [BluetoothDataManage shareInstance].isUpdateBtnHidden;
-//    _updateButton.hidden = YES;
     
     NSLog(@"版本号%d",[BluetoothDataManage shareInstance].versionupdate);
     //分区按钮显示
@@ -81,6 +80,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    _updateButton.hidden = [BluetoothDataManage shareInstance].isUpdateBtnHidden;
     [super viewWillAppear:animated];
     
 }
@@ -235,14 +235,15 @@
 }
 
 - (void)mowerSet{
-    if ([BluetoothDataManage shareInstance].version1 == 4) {
-        MowerSetingVC_type4 *typeVC = [[MowerSetingVC_type4 alloc] init];
-        [self.navigationController pushViewController:typeVC animated:YES];
-    }else{
-        MowerSettingViewController *VC = [[MowerSettingViewController alloc] init];
-        [self.navigationController pushViewController:VC animated:YES];
-        
-    }
+//    if ([BluetoothDataManage shareInstance].version1 == 4) {
+//        MowerSetingVC_type4 *typeVC = [[MowerSetingVC_type4 alloc] init];
+//        [self.navigationController pushViewController:typeVC animated:YES];
+//    }else{
+//        MowerSettingViewController *VC = [[MowerSettingViewController alloc] init];
+//        [self.navigationController pushViewController:VC animated:YES];
+//    }
+    MowerSetingVC_type4 *typeVC = [[MowerSetingVC_type4 alloc] init];
+    [self.navigationController pushViewController:typeVC animated:YES];
 }
 - (void)secondarySet{
     SecondarySettingViewController *VC = [[SecondarySettingViewController alloc] init];
@@ -260,15 +261,16 @@
 }
 
 - (void)updateWare{
-    
-    if ([BluetoothDataManage shareInstance].version1 == 4) {
-        FirmwareViewController *VC = [[FirmwareViewController alloc] init];
-        [self.navigationController pushViewController:VC animated:YES];
-    }else{
-        OldFirmwareViewController *OldVC = [[OldFirmwareViewController alloc] init];
-        [self.navigationController pushViewController:OldVC animated:YES];
-        
-    }
+//    #pragma mark - 2021.10.18 改
+//    if ([BluetoothDataManage shareInstance].version2 == 4) {
+//        FirmwareViewController *VC = [[FirmwareViewController alloc] init];
+//        [self.navigationController pushViewController:VC animated:YES];
+//    }else{
+//        OldFirmwareViewController *OldVC = [[OldFirmwareViewController alloc] init];
+//        [self.navigationController pushViewController:OldVC animated:YES];
+//    }
+    OldFirmwareViewController *OldVC = [[OldFirmwareViewController alloc] init];
+    [self.navigationController pushViewController:OldVC animated:YES];
 }
 
 @end

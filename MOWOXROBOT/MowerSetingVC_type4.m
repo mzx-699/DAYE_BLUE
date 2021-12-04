@@ -1,13 +1,13 @@
 //
 //  MowerSetingVC_type4.m
-//  MOWOX_Park
+//  Giz_Mower
 //
 //  Created by 安建伟 on 2020/10/9.
 //  Copyright © 2020 yusz. All rights reserved.
 //
 
 #import "MowerSetingVC_type4.h"
-#import "rainDelayView.h"
+#import "RainDelayView.h"
 @interface MowerSetingVC_type4 ()
 
 ///@brife 帧数据控制单例
@@ -24,7 +24,7 @@
 @property (strong, nonatomic)  UIButton *boundarynoButton;
 @property (strong, nonatomic)  UIButton *helixyesButton;
 @property (strong, nonatomic)  UIButton *helixnoButton;
-@property (nonatomic, strong) rainDelayView *rainDelayView;
+@property (nonatomic, strong) RainDelayView *rainDelayView;
 @property (strong, nonatomic)  UIButton *ultrasoundyesButton;
 @property (strong, nonatomic)  UIButton *ultrasoundnoButton;
 @property (strong, nonatomic)  UIButton *okButton;
@@ -49,6 +49,16 @@ static int isUltrasound = 0;
     
     [self viewLayoutSet];
     [self inquireMowerSetting];
+    #pragma mark - 2021.10.18 改
+    self.helixLabel.hidden = [[BluetoothDataManage shareInstance] updateHelixset];
+    self.helixyesButton.hidden = [[BluetoothDataManage shareInstance] updateHelixset];
+    self.helixnoButton.hidden = [[BluetoothDataManage shareInstance] updateHelixset];
+    
+    self.ultrasoundLabel.hidden = [[BluetoothDataManage shareInstance] updateultrasound];
+    self.ultrasoundyesButton.hidden = [[BluetoothDataManage shareInstance] updateultrasound];
+    self.ultrasoundnoButton.hidden = [[BluetoothDataManage shareInstance] updateultrasound];
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -129,7 +139,7 @@ static int isUltrasound = 0;
     [_ultrasoundnoButton addTarget:self action:@selector(ultrasoundSetNo) forControlEvents:UIControlEventTouchUpInside];
     [_okButton addTarget:self action:@selector(MowerSetting) forControlEvents:UIControlEventTouchUpInside];
     
-    _rainDelayView = [[rainDelayView alloc] init];
+    _rainDelayView = [[RainDelayView alloc] init];
     
     [self.view addSubview:_rainDelayLabel];
     [self.view addSubview:_rainLabel];

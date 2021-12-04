@@ -267,7 +267,6 @@
     _curVerTV = [[UITextView alloc] init];
     #pragma mark - 2021.10.18 改
     _curVerTV.text = [NSString stringWithFormat:@"%@\n V%@.%d.%d.%d\n%@\n V%@.2.7.3\n",LocalString(@"Your robot's firmware version:"),[BluetoothDataManage shareInstance].deviceType,[BluetoothDataManage shareInstance].version1,[BluetoothDataManage shareInstance].version2,[BluetoothDataManage shareInstance].version3,LocalString(@"Latest robot's firmware version:"),[BluetoothDataManage shareInstance].deviceType];
-//    _curVerTV.text = [NSString stringWithFormat:@"%@\n %@\n%@\n V%@.2.7.3\n",LocalString(@"Your robot's firmware version:"), [BluetoothDataManage shareInstance].versionString,LocalString(@"Latest robot's firmware version:"),[BluetoothDataManage shareInstance].deviceType];
     _curVerTV.font = [UIFont fontWithName:@"Arial" size:17];
     _curVerTV.backgroundColor = [UIColor clearColor];
     _curVerTV.autocapitalizationType = UITextAutocapitalizationTypeSentences;

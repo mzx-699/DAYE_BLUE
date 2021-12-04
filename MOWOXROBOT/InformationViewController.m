@@ -41,7 +41,7 @@
 {
     [super viewWillAppear:animated];
     //[self viewLayoutSet];
-    _label3.text = [NSString stringWithFormat:@"%@: V%@.%d.%d.%d",LocalString(@"Robot software version"),_bluetoothDataManage.deviceType,_bluetoothDataManage.version1,_bluetoothDataManage.version2,_bluetoothDataManage.version3];
+    _label3.text = [NSString stringWithFormat:@"%@: %@",LocalString(@"Robot software version"),self.bluetoothDataManage.versionString];
     
 }
 
@@ -142,7 +142,6 @@
         _label3.textAlignment = NSTextAlignmentLeft;
         [self.view addSubview:_label3];
         #pragma mark - 2021.10.18 改
-//        _label3.text = [NSString stringWithFormat:@"%@: V%@.%d.%d.%d",LocalString(@"Robot software version"),_bluetoothDataManage.deviceType,_bluetoothDataManage.version1,_bluetoothDataManage.version2,_bluetoothDataManage.version3];
         _label3.text = [NSString stringWithFormat:@"%@: %@",LocalString(@"Robot software version"),self.bluetoothDataManage.versionString];
         [_label3 setLineBreakMode:NSLineBreakByWordWrapping];
         _label3.numberOfLines = 0;
@@ -167,7 +166,7 @@
 
 - (void)getVersion{
     
-    _label3.text = [NSString stringWithFormat:@"%@: V%d.%d.%d",LocalString(@"Robot software version"), _bluetoothDataManage.version1,_bluetoothDataManage.version2,_bluetoothDataManage.version3];
+    _label3.text = [NSString stringWithFormat:@"%@: %@",LocalString(@"Robot software version"),self.bluetoothDataManage.versionString];
 }
 
 @end

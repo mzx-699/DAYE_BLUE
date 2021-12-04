@@ -72,8 +72,13 @@ static dispatch_queue_t queue;
 @property (nonatomic) int version2;
 @property (nonatomic) int version3;
 @property (nonatomic) int version4;
+@property (nonatomic) int updateNum;
+@property (nonatomic, strong) NSNumber *versionChar1;
+@property (nonatomic, strong) NSNumber *versionChar2;
+@property (nonatomic, strong) NSString *updateFileName;
 - (NSString*) updateFirmwareImageName;
 - (bool) updateHelixset;
+- (bool) updateultrasound;
 
 + (instancetype)shareInstance;
 

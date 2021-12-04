@@ -37,37 +37,145 @@ static int latestVersion = 273;
 @end
 
 @implementation BluetoothDataManage
-
-- (bool)isUpdateBtnHidden {
-    if (_version1 == 4) {
-        if (self.versionupdate < latestVersion_4) {
-            return NO;
-            
-        }else{
-            return YES;
-        }
-    }else if (self.version1 == 2){
-        
-        if (self.versionupdate < latestVersion) {
-            return NO;
-//            if ([BluetoothDataManage shareInstance].versionupdate <= 268) {
-//                _updateButton.hidden = YES;
-//            }
-        }else{
-            return YES;
-        }
+- (NSString *)updateFileName{
+    #pragma mark - 2021.10.18 改
+    if ([@"DY002" isEqual:self.updateString]) {
+        _updateFileName = @"DY00274";
+    } else if ([@"DY052" isEqual:self.updateString]) {
+        _updateFileName = @"DY05274";
+    } else if ([@"DY012" isEqual:self.updateString]) {
+        _updateFileName = @"DY01274";
+    } else if ([@"DY112" isEqual:self.updateString]) {
+        _updateFileName = @"DY11274";
+    } else if ([@"DY022" isEqual:self.updateString]) {
+        _updateFileName = @"DY02274";
+    } else if ([@"DY122" isEqual:self.updateString]) {
+        _updateFileName = @"DY12274";
+    } else if ([@"DY142" isEqual:self.updateString]) {
+        _updateFileName = @"DY14274";
+    } else if ([@"DY162" isEqual:self.updateString]) {
+        _updateFileName = @"DY16274";
+    } else if ([@"GY002" isEqual:self.updateString]) {
+        _updateFileName = @"GY00274";
+    } else if ([@"GY052" isEqual:self.updateString]) {
+        _updateFileName = @"GY05274";
+    } else if ([@"GY012" isEqual:self.updateString]) {
+        _updateFileName = @"GY01274";
+    } else if ([@"GY112" isEqual:self.updateString]) {
+        _updateFileName = @"GY11274";
+    } else if ([@"GY022" isEqual:self.updateString]) {
+        _updateFileName = @"GY02274";
+    } else if ([@"GY122" isEqual:self.updateString]) {
+        _updateFileName = @"GY12274";
+    } else if ([@"GY142" isEqual:self.updateString]) {
+        _updateFileName = @"GY14274";
+    } else if ([@"GY162" isEqual:self.updateString]) {
+        _updateFileName = @"GY16274";
+    } else if ([@"DM104" isEqual:self.updateString]) {
+        _updateFileName = @"DM10403";
+    } else if ([@"DM304" isEqual:self.updateString]) {
+        _updateFileName = @"DM30403";
+    } else if ([@"DA104" isEqual:self.updateString]) {
+        _updateFileName = @"DA10402";
+    } else if ([@"DA114" isEqual:self.updateString]) {
+        _updateFileName = @"DA11402";
+    } else if ([@"DA134" isEqual:self.updateString]) {
+        _updateFileName = @"DA13402";
     }
-    return YES;
+    NSLog(@"更新文件包名.....%@",_updateFileName);
+    return _updateFileName;
+}
+- (NSMutableString *)versionString {
+    _versionString  = [[NSMutableString alloc] init];
+    if ([self.versionChar1 isEqualToNumber:@0] && [self.versionChar2 isEqualToNumber:@0]) {
+        if(self.version2 == 2) {
+            [_versionString appendFormat:@"%c", 'D'];
+            [_versionString appendFormat:@"%c", 'Y'];
+        } else if (self.version2 == 3 || self.version2 == 4) {
+            [_versionString appendFormat:@"%c", 'D'];
+            [_versionString appendFormat:@"%c", 'M'];
+        }
+    } else {
+        [_versionString appendFormat:@"%c", [self.versionChar1 charValue]];
+        [_versionString appendFormat:@"%c", [self.versionChar2 charValue]];
+    }
+    
+    [_versionString appendFormat:@"%d", self.sectionvalve];
+    [_versionString appendFormat:@"%d", self.version1];
+    [_versionString appendFormat:@"%d", self.version2];
+    [_versionString appendFormat:@"%d", self.version3];
+    [_versionString appendFormat:@"%d", self.version4];
+    return _versionString;
+}
+- (NSMutableString *)updateString {
+    _updateString  = [[NSMutableString alloc] init];
+    if ([self.versionChar1 isEqualToNumber:@0] && [self.versionChar2 isEqualToNumber:@0]) {
+        if(self.version2 == 2) {
+            [_updateString appendFormat:@"%c", 'D'];
+            [_updateString appendFormat:@"%c", 'Y'];
+        } else if (self.version2 == 3 || self.version2 == 4) {
+            [_updateString appendFormat:@"%c", 'D'];
+            [_updateString appendFormat:@"%c", 'M'];
+        }
+    } else {
+        [_updateString appendFormat:@"%c", [self.versionChar1 charValue]];
+        [_updateString appendFormat:@"%c", [self.versionChar2 charValue]];
+    }
+    
+    
+    [_updateString appendFormat:@"%d", self.sectionvalve];
+    [_updateString appendFormat:@"%d", self.version1];
+    [_updateString appendFormat:@"%d", self.version2];
+    return _updateString;
+}
+- (bool)isUpdateBtnHidden {
+    if ([@"DY002" isEqual:self.updateString]) {
+        return self.updateNum >= 74;
+    } else if ([@"DY052" isEqual:self.updateString]) {
+        return self.updateNum >= 74;
+    } else if ([@"DY012" isEqual:self.updateString]) {
+        return self.updateNum >= 74;
+    } else if ([@"DY112" isEqual:self.updateString]) {
+        return self.updateNum >= 74;
+    } else if ([@"DY022" isEqual:self.updateString]) {
+        return self.updateNum >= 74;
+    } else if ([@"DY122" isEqual:self.updateString]) {
+        return self.updateNum >= 74;
+    } else if ([@"DY142" isEqual:self.updateString]) {
+        return self.updateNum >= 74;
+    } else if ([@"DY162" isEqual:self.updateString]) {
+        return self.updateNum >= 74;
+    } else if ([@"GY002" isEqual:self.updateString]) {
+        return self.updateNum >= 74;
+    } else if ([@"GY052" isEqual:self.updateString]) {
+        return self.updateNum >= 74;
+    } else if ([@"GY012" isEqual:self.updateString]) {
+        return self.updateNum >= 74;
+    } else if ([@"GY112" isEqual:self.updateString]) {
+        return self.updateNum >= 74;
+    } else if ([@"GY022" isEqual:self.updateString]) {
+        return self.updateNum >= 74;
+    } else if ([@"GY122" isEqual:self.updateString]) {
+        return self.updateNum >= 74;
+    } else if ([@"GY142" isEqual:self.updateString]) {
+        return self.updateNum >= 74;
+    } else if ([@"GY162" isEqual:self.updateString]) {
+        return self.updateNum >= 74;
+    } else if ([@"DM104" isEqual:self.updateString]) {
+        return YES;
+    } else if ([@"DM304" isEqual:self.updateString]) {
+        return YES;
+    } else if ([@"DA104" isEqual:self.updateString]) {
+        return self.updateNum >= 3;
+    } else if ([@"DA114" isEqual:self.updateString]) {
+        return self.updateNum >= 2;
+    } else if ([@"DA134" isEqual:self.updateString]) {
+        return self.updateNum >= 2;
+    }
+    return NO;
 }
 #pragma mark - 2021.10.18 改
 - (NSString *)updateFirmwareImageName {
-//    if (_deviceType.intValue == 0) {
-//        //要显示的图片，即要放大的图片
-//        NSLog(@"%@", self.deviceType);
-//        return @"updateFirmwareTip0";
-//    } else {
-//        return @"updateFirmwareTip";
-//    }
     
     if ([@"DY002" isEqual:self.updateString] || [@"DY052" isEqual:self.updateString] ||
         [@"DM104" isEqual:self.updateString] || [@"DM304" isEqual:self.updateString] ||
@@ -88,19 +196,19 @@ static int latestVersion = 273;
 }
 #pragma mark - 2021.10.18 改
 - (bool)updateHelixset {
-//    if (_deviceType.intValue == 0) {
-//        //要显示的图片，即要放大的图片
-//        NSLog(@"%@", self.deviceType);
-//        return @"updateFirmwareTip0";
-//    } else {
-//        return @"updateFirmwareTip";
-//    }
     if ([@"DM104" isEqual:self.updateString] || [@"DM304" isEqual:self.updateString]) {
         return true;
     } else {
         return false;
     }
     
+}
+- (bool)updateultrasound {
+    if ([@"DM104" isEqual:self.updateString] || [@"DM304" isEqual:self.updateString]) {
+        return false;
+    } else {
+        return true;
+    }
 }
 + (instancetype)shareInstance{
     static dispatch_once_t once;
@@ -511,23 +619,42 @@ static int latestVersion = 273;
             #pragma mark - 2021.10.18 改
             NSNumber *version4 = _receiveData[11];
             NSNumber *robotState = _receiveData[12];
-            NSNumber *versionChar1 = _receiveData[13];
-            NSNumber *versionChar2 = _receiveData[14];
+            self.versionChar1 = _receiveData[13];
+            self.versionChar2 = _receiveData[14];
+            _versionString  = [[NSMutableString alloc] init];
+            _updateString  = [[NSMutableString alloc] init];
+            if ([self.versionChar1 isEqualToNumber:@0] && [self.versionChar2 isEqualToNumber:@0]) {
+                _deviceType = @1;
+                if([version2 isEqualToNumber:@2]) {
+                    [_versionString appendFormat:@"%c", 'D'];
+                    [_versionString appendFormat:@"%c", 'Y'];
+                    [self.updateString appendFormat:@"%c", 'D'];
+                    [self.updateString appendFormat:@"%c", 'Y'];
+                } else if ([version2 isEqualToNumber:@3] || [version2 isEqualToNumber:@4]) {
+                    [_versionString appendFormat:@"%c", 'D'];
+                    [_versionString appendFormat:@"%c", 'M'];
+                    [_updateString appendFormat:@"%c", 'D'];
+                    [_updateString appendFormat:@"%c", 'M'];
+                }
+            } else {
+                _deviceType = @2;
+                [_versionString appendFormat:@"%c", [self.versionChar1 charValue]];
+                [_versionString appendFormat:@"%c", [self.versionChar2 charValue]];
+                [_updateString appendFormat:@"%c", [self.versionChar1 charValue]];
+                [_updateString appendFormat:@"%c", [self.versionChar2 charValue]];
+            }
             
-            
-            _deviceType = version2;
-            _version1 = [version1 intValue];
-            _version2 = [version2 intValue];
-            _version3 = [version3 intValue];
-            _version4 = [version4 intValue];
-            _versionupdate = _version1 * 100 + _version2 * 10 + _version3;
-            [self.versionString appendFormat:@"%c", [versionChar1 charValue]];
-            [self.versionString appendFormat:@"%c", [versionChar2 charValue]];
-            [self.versionString appendFormat:@"%d", self.sectionvalve];
-            [self.versionString appendFormat:@"%d", self.version1];
-            [self.versionString appendFormat:@"%d", self.version2];
-            [self.versionString appendFormat:@"%d", self.version3];
-            [self.versionString appendFormat:@"%d", self.version4];
+    
+            self.version1 = [version1 intValue];
+            self.version2 = [version2 intValue];
+            self.version3 = [version3 intValue];
+            self.version4 = [version4 intValue];
+            self.updateNum = self.version3 * 10 + self.version4;
+            [_versionString appendFormat:@"%d", self.sectionvalve];
+            [_versionString appendFormat:@"%d", self.version1];
+            [_versionString appendFormat:@"%d", self.version2];
+            [_versionString appendFormat:@"%d", self.version3];
+            [_versionString appendFormat:@"%d", self.version4];
             
             
             [dataDic setObject:batterData forKey:@"batterData"];
@@ -541,14 +668,13 @@ static int latestVersion = 273;
             [[NSNotificationCenter defaultCenter] postNotificationName:@"getMowerData" object:nil userInfo:dataDic];
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:version2 forKey:@"deviceType"];
+            [defaults setObject:_deviceType forKey:@"deviceType"];
             [defaults synchronize];
             
-            [self.updateString appendFormat:@"%c", [versionChar1 charValue]];
-            [self.updateString appendFormat:@"%c", [versionChar2 charValue]];
-            [self.updateString appendFormat:@"%d", self.sectionvalve];
-            [self.updateString appendFormat:@"%d", self.version1];
-            [self.updateString appendFormat:@"%d", self.version2];
+            
+            [_updateString appendFormat:@"%d", self.sectionvalve];
+            [_updateString appendFormat:@"%d", self.version1];
+            [_updateString appendFormat:@"%d", self.version2];
             [defaults setObject:self.updateString forKey:@"updateString"];
             [defaults synchronize];
             

@@ -23,7 +23,7 @@
 @property (strong, nonatomic)  UIButton *boundarynoButton;
 @property (strong, nonatomic)  UIButton *helixyesButton;
 @property (strong, nonatomic)  UIButton *helixnoButton;
-@property (nonatomic, strong) rainDelayView *rainDelayView;
+@property (nonatomic, strong) RainDelayView *rainDelayView;
 @property (strong, nonatomic)  UIButton *okButton;
 
 @end
@@ -105,7 +105,7 @@ static int isHelix = 0;
     [_helixnoButton addTarget:self action:@selector(helixSetNo) forControlEvents:UIControlEventTouchUpInside];
     [_okButton addTarget:self action:@selector(MowerSetting) forControlEvents:UIControlEventTouchUpInside];
     
-    _rainDelayView = [[rainDelayView alloc] init];
+    _rainDelayView = [[RainDelayView alloc] init];
     
     [self.view addSubview:_rainLabel];
     [self.view addSubview:_boundaryLabel];
