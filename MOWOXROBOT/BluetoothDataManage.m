@@ -655,7 +655,7 @@ static int latestVersion = 273;
             [_versionString appendFormat:@"%d", self.version2];
             [_versionString appendFormat:@"%d", self.version3];
             [_versionString appendFormat:@"%d", self.version4];
-            
+            _versionupdate = self.version2 * 100 + self.version3 * 10 + self.version4;
             
             [dataDic setObject:batterData forKey:@"batterData"];
             [dataDic setObject:CPUTemperature forKey:@"CPUTemperature"];
