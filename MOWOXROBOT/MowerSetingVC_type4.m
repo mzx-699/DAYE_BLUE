@@ -58,6 +58,9 @@ static int isUltrasound = 0;
     self.ultrasoundyesButton.hidden = [[BluetoothDataManage shareInstance] updateultrasound];
     self.ultrasoundnoButton.hidden = [[BluetoothDataManage shareInstance] updateultrasound];
     
+    self.rainDelayView.hidden = [[BluetoothDataManage shareInstance] updateWaitRain];
+    self.rainDelayLabel.hidden = [[BluetoothDataManage shareInstance] updateWaitRain];
+    
     
 }
 

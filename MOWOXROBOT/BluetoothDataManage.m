@@ -142,7 +142,7 @@ static int latestVersion = 273;
     } else if ([@"DY122" isEqual:self.updateString]) {
         return self.updateNum >= 74;
     } else if ([@"DY142" isEqual:self.updateString]) {
-        return self.updateNum >= 74;
+        return YES;
     } else if ([@"DY162" isEqual:self.updateString]) {
         return self.updateNum >= 74;
     } else if ([@"GY002" isEqual:self.updateString]) {
@@ -158,7 +158,7 @@ static int latestVersion = 273;
     } else if ([@"GY122" isEqual:self.updateString]) {
         return self.updateNum >= 74;
     } else if ([@"GY142" isEqual:self.updateString]) {
-        return self.updateNum >= 74;
+        return YES;
     } else if ([@"GY162" isEqual:self.updateString]) {
         return self.updateNum >= 74;
     } else if ([@"DM104" isEqual:self.updateString]) {
@@ -179,14 +179,14 @@ static int latestVersion = 273;
     
     if ([@"DY002" isEqual:self.updateString] || [@"DY052" isEqual:self.updateString] ||
         [@"DM104" isEqual:self.updateString] || [@"DM304" isEqual:self.updateString] ||
-        [@"DA104" isEqual:self.updateString] || [@"DA134" isEqual:self.updateString]) {
+        [@"DA104" isEqual:self.updateString] || [@"DA134" isEqual:self.updateString] ||
+        [@"GY002" isEqual:self.updateString] || [@"GY052" isEqual:self.updateString]) {
         return @"update_10_18_1";
     } else if ([@"DA114" isEqual:self.updateString]) {
         return @"update_10_18_3";
     } else if ([@"DY012" isEqual:self.updateString] || [@"DY112" isEqual:self.updateString] ||
                [@"DY122" isEqual:self.updateString] || [@"DY142" isEqual:self.updateString] ||
-               [@"DY162" isEqual:self.updateString] || [@"GY002" isEqual:self.updateString] ||
-               [@"GY052" isEqual:self.updateString] || [@"GY012" isEqual:self.updateString] ||
+               [@"DY162" isEqual:self.updateString]  || [@"GY012" isEqual:self.updateString] ||
                [@"GY112" isEqual:self.updateString] || [@"GY022" isEqual:self.updateString] ||
                [@"GY122" isEqual:self.updateString] || [@"GY142" isEqual:self.updateString] ||
                [@"GY162" isEqual:self.updateString]) {
@@ -208,6 +208,14 @@ static int latestVersion = 273;
         return false;
     } else {
         return true;
+    }
+}
+#pragma mark - 雨水hidden
+- (bool)updateWaitRain {
+    if ([@"DM104" isEqual:self.updateString] || [@"DM304" isEqual:self.updateString]) {
+        return YES;
+    } else {
+        return NO;
     }
 }
 + (instancetype)shareInstance{
