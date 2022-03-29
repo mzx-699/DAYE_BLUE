@@ -652,6 +652,8 @@
 		7303479727E88E6500870B50 /* DA11402.bin in Resources */ = {isa = PBXBuildFile; fileRef = 7303476027E88E6500870B50 /* DA11402.bin */; };
 		7303479827E88E6500870B50 /* DA11402.bin in Resources */ = {isa = PBXBuildFile; fileRef = 7303476027E88E6500870B50 /* DA11402.bin */; };
 		7303479927E88E6500870B50 /* DA11402.bin in Resources */ = {isa = PBXBuildFile; fileRef = 7303476027E88E6500870B50 /* DA11402.bin */; };
+		73131CDE27F1680700D6DCD0 /* libPods-MOWOX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73131CDD27F1680700D6DCD0 /* libPods-MOWOX.a */; };
+		73131CE127F1688900D6DCD0 /* MOWOX_BLU.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73131CE027F1688900D6DCD0 /* MOWOX_BLU.plist */; };
 		738BF16C27E9BC62008FA770 /* update_10_18_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 738BF16B27E9BC62008FA770 /* update_10_18_3@2x.png */; };
 		738BF16D27E9BC62008FA770 /* update_10_18_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 738BF16B27E9BC62008FA770 /* update_10_18_3@2x.png */; };
 		738BF16E27E9BC62008FA770 /* update_10_18_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 738BF16B27E9BC62008FA770 /* update_10_18_3@2x.png */; };
@@ -687,9 +689,7 @@
 		366A929624F64150001996B5 /* OldFirmwareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OldFirmwareViewController.h; sourceTree = "<group>"; };
 		366A929724F64150001996B5 /* OldFirmwareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OldFirmwareViewController.m; sourceTree = "<group>"; };
 		368E4F94238D1B8300AFE3B3 /* MOWOX_BLU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOWOX_BLU.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		368E4F95238D1B8300AFE3B3 /* MOWOXBLU-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MOWOXBLU-Info.plist"; path = "/Users/anjianwei/Desktop/DAYE/MOWOXBLU-Info.plist"; sourceTree = "<absolute>"; };
 		368E505B238D296E00AFE3B3 /* MOWOX_GN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOWOX_GN.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		368E505C238D296E00AFE3B3 /* MOWOX_GN-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MOWOX_GN-Info.plist"; path = "/Users/anjianwei/Desktop/DAYE/MOWOX_GN-Info.plist"; sourceTree = "<absolute>"; };
 		368E506E238D2F4100AFE3B3 /* Launch_Park.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch_Park.storyboard; sourceTree = "<group>"; };
 		368E5070238D3CCF00AFE3B3 /* Launch_BLU.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch_BLU.storyboard; sourceTree = "<group>"; };
 		368E5072238D3D4D00AFE3B3 /* Launch_GN.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch_GN.storyboard; sourceTree = "<group>"; };
@@ -908,6 +908,8 @@
 		7303475E27E88E6500870B50 /* GY14274.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = GY14274.bin; sourceTree = "<group>"; };
 		7303475F27E88E6500870B50 /* DY01274.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = DY01274.bin; sourceTree = "<group>"; };
 		7303476027E88E6500870B50 /* DA11402.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = DA11402.bin; sourceTree = "<group>"; };
+		73131CDD27F1680700D6DCD0 /* libPods-MOWOX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-MOWOX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		73131CE027F1688900D6DCD0 /* MOWOX_BLU.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MOWOX_BLU.plist; sourceTree = "<group>"; };
 		738BF16B27E9BC62008FA770 /* update_10_18_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "update_10_18_3@2x.png"; sourceTree = "<group>"; };
 		7B70FDA6604CB820688AC28F /* Pods-MOWOXROBOT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MOWOXROBOT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MOWOXROBOT/Pods-MOWOXROBOT.debug.xcconfig"; sourceTree = "<group>"; };
 		B0FFC2AA47A8A70D5B1A5F1F /* libPods-MOWOX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MOWOX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1047,6 +1049,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73131CDE27F1680700D6DCD0 /* libPods-MOWOX.a in Frameworks */,
 				368E4F16238D1B8300AFE3B3 /* ExternalAccessory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1249,8 +1252,6 @@
 				3E6325231FA6BC5F00F14462 /* Products */,
 				ABFF92C4CAECF0C1C642BC34 /* Pods */,
 				C849B8FBA538DCC66B2BDF33 /* Frameworks */,
-				368E4F95238D1B8300AFE3B3 /* MOWOXBLU-Info.plist */,
-				368E505C238D296E00AFE3B3 /* MOWOX_GN-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1282,6 +1283,7 @@
 				368E5072238D3D4D00AFE3B3 /* Launch_GN.storyboard */,
 				BB1299302021A79500285201 /* Localizable.strings */,
 				368E507B238F665E00AFE3B3 /* MOWOX_Park.plist */,
+				73131CE027F1688900D6DCD0 /* MOWOX_BLU.plist */,
 				3E6325251FA6BC5F00F14462 /* Supporting Files */,
 				BBA446562101742A00D3B30E /* MOWOXROBOT */,
 				361FF0592255B65D00A5108D /* BLU_Images.xcassets */,
@@ -1674,6 +1676,7 @@
 		C849B8FBA538DCC66B2BDF33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				73131CDD27F1680700D6DCD0 /* libPods-MOWOX.a */,
 				3609DCE02376B5E200FA7ADF /* NetworkExtension.framework */,
 				3EF13DC521AD6D4000A575AF /* ExternalAccessory.framework */,
 				B0FFC2AA47A8A70D5B1A5F1F /* libPods-MOWOX.a */,
@@ -1976,6 +1979,7 @@
 				368E4F1F238D1B8300AFE3B3 /* 机器人APP1+2(1)-3.png in Resources */,
 				368E4F20238D1B8300AFE3B3 /* BluetoothWelcome1_5.5@2x.png in Resources */,
 				368E4F21238D1B8300AFE3B3 /* 右转@2x.png in Resources */,
+				73131CE127F1688900D6DCD0 /* MOWOX_BLU.plist in Resources */,
 				368E4F22238D1B8300AFE3B3 /* ParkWelcome1_4.7@2x.png in Resources */,
 				368E4F23238D1B8300AFE3B3 /* 40@2x.png in Resources */,
 				368E4F24238D1B8300AFE3B3 /* findBluetooth@2x.png in Resources */,
@@ -2894,7 +2898,7 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/SVProgressHUD\"",
 				);
-				MARKETING_VERSION = 0.3.4;
+				MARKETING_VERSION = 2.0.21;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-all_load",
@@ -2955,7 +2959,7 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/SVProgressHUD\"",
 				);
-				MARKETING_VERSION = 0.3.4;
+				MARKETING_VERSION = 2.0.21;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-all_load",
@@ -3013,7 +3017,7 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/SVProgressHUD\"",
 				);
-				MARKETING_VERSION = 0.3.4;
+				MARKETING_VERSION = 2.0.21;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-all_load",
